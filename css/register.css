@@ -1,0 +1,130 @@
+
+a:focus, a:active {
+  text-decoration: none;
+  outline: none;
+  transition: all 300ms ease 0s;
+  -moz-transition: all 300ms ease 0s;
+  -webkit-transition: all 300ms ease 0s;
+  -o-transition: all 300ms ease 0s;
+  -ms-transition: all 300ms ease 0s; }
+
+input, select, textarea {
+  outline: none;
+  appearance: unset !important;
+  -moz-appearance: unset !important;
+  -webkit-appearance: unset !important;
+  -o-appearance: unset !important;
+  -ms-appearance: unset !important; }
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  -webkit-appearance: none !important;
+  -o-appearance: none !important;
+  -ms-appearance: none !important;
+  margin: 0; }
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -o-box-shadow: none !important;
+  -ms-box-shadow: none !important; }
+
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 30px white inset;
+  -moz-box-shadow: 0 0 0 30px white inset;
+  -webkit-box-shadow: 0 0 0 30px white inset;
+  -o-box-shadow: 0 0 0 30px white inset;
+  -ms-box-shadow: 0 0 0 30px white inset; }
+
+h2 {
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: #222;
+  font-family: 'Roboto Slab';
+  font-size: 20px;
+  margin-bottom: 30px;
+  text-transform: uppercase; }
+
+
+.clear {
+  clear: both; }
+
+body {
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #fff;
+  background-image: url("../images/login.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-position: center center;
+  font-weight: 400;
+  margin: 0px; }
+
+.main {
+  padding: 60px 0;
+  position: relative; }
+
+.container-register {
+  
+  width: 586px;
+  background: #fff;
+  margin-left: 165px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px; }
+  
+
+.appointment-form {
+  padding: 50px 60px 70px 60px; }
+
+input, select {
+  width: 100%;
+  display: block;
+  border: none;
+  border-bottom: 2px solid #ebebeb;
+  padding: 5px 0;
+  color: #222;
+  margin-bottom: 31px;
+  font-family: 'Roboto Slab'; }
+  input:focus, select:focus {
+    color: #222;
+    border-bottom: 2px solid #4966b1; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+  .container {
+    margin: 0 auto; } }
+@media screen and (max-width: 768px) {
+  .container {
+    width: calc( 100% - 30px);
+    max-width: 100%; } }
+@media screen and (max-width: 480px) {
+  .appointment-form {
+    padding: 50px 30px 70px 30px; } }
+
+/*# sourceMappingURL=style.css.map */

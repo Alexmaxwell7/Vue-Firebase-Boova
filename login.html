@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <title>Boova</title>
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <form  class="appointment-form" id="appointment-form">
+                <h2 style="color: #02CA89;">Login</h2>
+                <div class="form-group">
+                    <input type="email" name="email" id="email" placeholder="Email" style="width: 50%;" /><br/>
+                    <input type="password" name="email" id="email" placeholder="password" style="width: 50%;"   />
+                </div>
+                <div class="form-submit">
+                    <button  type="button" class="btn btn-info " data-toggle="modal" data-target="#aboutModal"> Login </button>
+                    <!-- <input type="submit"  value="Login" style="background-color:#02CA89 ;" /> -->
+                </div>
+                <!-- <div class="form-submit">
+                    <a href="./register.html">Register</a>
+                </div> -->
+            </form>
+        </div>
+
+        		<!-- Modal2 -->
+			<div class="modal video-modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<section>
+							<div class="modal-body">
+								<div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-4">
+                                            <a href="#" class="btn btn-success" role="button">Restaurant Register</a>
+                                            <!-- <button type="button" class="btn btn-success"></button> -->
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <a href="./partner.html" class="btn btn-warning" role="button">Delivery Partner</a>
+                                            <!-- <button type="button" class="btn btn-warning" ></button> -->
+                                        </div>
+                                      </div>
+                                </div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+
+    </div>
+
+    
+</body>
+</html>
