@@ -1,178 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <h1>Delivery Partner Details</h1>
+    </div>
 
-<div class="jumbotron text-center">
-  <h1>Delivery Partner Details</h1>
-</div>
-  
-<div id="main">
-<div class="container">
-  
-    <table class="table table-striped" >
-        <thead>
-          <tr>
-            <th scope="col">NO.</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Mobile</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody v-for="(item,i) in user" v-bind:key="item.id">
-          <tr>
-            <th scope="row">{{i+1}}</th>
-            <td>{{item.data.firstname}}</td>
-            <td>{{item.data.lastname}}</td>
-            <td>{{item.data.phone}}</td>
-            <td><div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-primary" @click='setData(item.data,item.id)' data-toggle="modal" data-target="#EditModal">Edit</button>
-                <button type="button" class="btn btn-warning" @click="deleteUser(item.id)">Delete</button>
-              </div></td>
-          </tr>
-        </tbody>
-      </table>
- 
-</div>
-<div class="modal video-modal fade bd-example-modal-lg" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+    <div id="main">
+      <div class="container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">NO.</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Mobile</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody v-for="(item,i) in user" v-bind:key="item.id">
+            <tr>
+              <th scope="row">{{i+1}}</th>
+              <td>{{item.data.firstname}}</td>
+              <td>{{item.data.lastname}}</td>
+              <td>{{item.data.phone}}</td>
+              <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <i
+                    class="fa fa-edit"
+                    style="font-size: 30px;color: #02CA89;"
+                    @click="setData(item.data,item.id)"
+                    data-toggle="modal"
+                    data-target="#EditModal"
+                  ></i>
+                  <i
+                    class="fa fa-trash"
+                    style="font-size: 30px;color: red;"
+                    @click="deleteUser(item.id)"
+                  ></i>
+                  <!-- <button type="button" class="btn btn-primary" @click='setData(item.data,item.id)' data-toggle="modal" data-target="#EditModal">Edit</button> -->
+                  <!-- <button type="button" class="btn btn-warning" @click="deleteUser(item.id)">Delete</button> -->
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        class="modal video-modal fade bd-example-modal-lg"
+        id="EditModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModal"
+      >
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
             <section>
-                <div class="modal-body">
-                    <div class="container" >
-                      <!-- <div class="row">
+              <div class="modal-body">
+                <div class="container">
+                  <!-- <div class="row">
                         <div class="col-sm-12"> -->
-                        <form @submit.prevent="updateUser(datapost)">
-                            <div class="row">
-                                <div class="form-group col-sm-4">
-                                  <label for="inputEmail4">First Name</label>
-                                  <input v-model="datapost.firstname" type="text" class="form-control" id="inputname" placeholder="First Name">
-                                </div>
-                                <div class="form-group col-sm-4">
-                                  <label for="inputPassword4">Last Name</label>
-                                  <input v-model="datapost.lastname" type="text" class="form-control" id="inputPassword4" placeholder="Last Name">
-                                </div>
-                              </div>
-                            <div class="row">
-                              <div class="form-group col-sm-4">
-                                <label for="inputEmail4">D.O.B</label>
-                                <input v-model="datapost.dob" type="date" class="form-control" id="inputEmail4" placeholder="D.O.B">
-                              </div>
-                              <div class="form-group col-sm-4">
-                                <label for="inputPassword4">Proof</label>
-                                <input v-model="datapost.proof" type="text" class="form-control" id="inputPassword4" placeholder="Address Proof">
-                              </div>
-                            </div>
-                            <div class="row">
-                            <div class="form-group col-sm-8">
-                              <label for="inputAddress">Address</label>
-                              <input v-model="datapost.address" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                            </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-sm-3">
-                                  <label for="inputEmail4">License</label>
-                                  <input v-model="datapost.license" type="text" class="form-control" id="inputEmail4" placeholder="License">
-                                </div>
-                                <div class="form-group col-sm-3">
-                                  <label for="inputPassword4">Blood Group</label>
-                                  <input v-model="datapost.bloodgroup" type="text" class="form-control" id="inputPassword4" placeholder="Blood Group">
-                                </div>
-                                <div class="form-group col-sm-3">
-                                    <label for="inputPassword4">Phone Number</label>
-                                    <input v-model="datapost.phone" type="text" class="form-control" id="inputPassword4" placeholder="Phone Number">
-                                  </div>
-                              </div>
-                              <div class="row">
-                              <div class="form-group col-sm-8">
-                                <label for="inputAddress">Email</label>
-                                <input v-model="datapost.email" type="email" class="form-control" id="inputAddress" placeholder="Email">
-                              </div>
-                              </div>
-                            <button class="btn btn-primary">Register</button>
-                          </form>
-                        <!-- </div>
-                        </div> -->
+                  <form @submit.prevent="updateUser(datapost)">
+                    <div class="row">
+                      <div class="form-group col-sm-4">
+                        <label for="inputEmail4">First Name</label>
+                        <input
+                          v-model="datapost.firstname"
+                          type="text"
+                          class="form-control"
+                          id="inputname"
+                          placeholder="First Name"
+                        />
+                      </div>
+                      <div class="form-group col-sm-4">
+                        <label for="inputPassword4">Last Name</label>
+                        <input
+                          v-model="datapost.lastname"
+                          type="text"
+                          class="form-control"
+                          id="inputPassword4"
+                          placeholder="Last Name"
+                        />
+                      </div>
                     </div>
+                    <div class="row">
+                      <div class="form-group col-sm-4">
+                        <label for="inputEmail4">D.O.B</label>
+                        <input
+                          v-model="datapost.dob"
+                          type="date"
+                          class="form-control"
+                          id="inputEmail4"
+                          placeholder="D.O.B"
+                        />
+                      </div>
+                      <div class="form-group col-sm-4">
+                        <label for="inputPassword4">Proof</label>
+                        <input
+                          v-model="datapost.proof"
+                          type="text"
+                          class="form-control"
+                          id="inputPassword4"
+                          placeholder="Address Proof"
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-sm-8">
+                        <label for="inputAddress">Address</label>
+                        <input
+                          v-model="datapost.address"
+                          type="text"
+                          class="form-control"
+                          id="inputAddress"
+                          placeholder="1234 Main St"
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-sm-3">
+                        <label for="inputEmail4">License</label>
+                        <input
+                          v-model="datapost.license"
+                          type="text"
+                          class="form-control"
+                          id="inputEmail4"
+                          placeholder="License"
+                        />
+                      </div>
+                      <div class="form-group col-sm-3">
+                        <label for="inputPassword4">Blood Group</label>
+                        <input
+                          v-model="datapost.bloodgroup"
+                          type="text"
+                          class="form-control"
+                          id="inputPassword4"
+                          placeholder="Blood Group"
+                        />
+                      </div>
+                      <div class="form-group col-sm-3">
+                        <label for="inputPassword4">Phone Number</label>
+                        <input
+                          v-model="datapost.phone"
+                          type="text"
+                          class="form-control"
+                          id="inputPassword4"
+                          placeholder="Phone Number"
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-sm-8">
+                        <label for="inputAddress">Email</label>
+                        <input
+                          v-model="datapost.email"
+                          type="email"
+                          class="form-control"
+                          id="inputAddress"
+                          placeholder="Email"
+                        />
+                      </div>
+                    </div>
+                    <button class="btn btn-primary">Register</button>
+                  </form>
+                  <!-- </div>
+                        </div> -->
                 </div>
+              </div>
             </section>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
-<script>
-    const config={
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
+    <script>
+      const config = {
         apiKey: "AIzaSyANHwNIaWsBbiovGDDhy-v9bCaqMVSdtic",
-    authDomain: "fir-ac1d9.firebaseapp.com",
-    databaseURL: "https://fir-ac1d9-default-rtdb.firebaseio.com",
-    projectId: "fir-ac1d9",
-    storageBucket: "fir-ac1d9.appspot.com",
-    messagingSenderId: "698120152384",
-    appId: "1:698120152384:web:2a59a32b1cab3e577006a5"
-    };
+        authDomain: "fir-ac1d9.firebaseapp.com",
+        databaseURL: "https://fir-ac1d9-default-rtdb.firebaseio.com",
+        projectId: "fir-ac1d9",
+        storageBucket: "fir-ac1d9.appspot.com",
+        messagingSenderId: "698120152384",
+        appId: "1:698120152384:web:2a59a32b1cab3e577006a5",
+      };
 
-   firebase.initializeApp(config);
-   const db= firebase.firestore()
-   const colection=db.collection('user')
-  
-    
-    new Vue({
-        el:'#main',
-        data:{
-            age:null,
-            name:null,
-            datapost: {},
-            datapostId:{},
-            userItem:[],
-            user:[]
-        },
-        mounted(){
-            
-            colection.get().then((r)=>r.docs.map((item)=>this.user.push({id:item.id,data:item.data()})))
-            this.user=[]
+      firebase.initializeApp(config);
+      const db = firebase.firestore();
+      const colection = db.collection("user");
 
-            
+      new Vue({
+        el: "#main",
+        data: {
+          age: null,
+          name: null,
+          datapost: {},
+          datapostId: {},
+          userItem: [],
+          user: [],
         },
-        methods:{
-            setData(item,itemId) {
-                this.userItem=item
-      
-         this.datapost={
-             ...item,
-             itemId
-         }
-        console.log(this.datapost);
-        // console.log( this.datapost);
-        console.log(this.datapostId)
-      },
-            updateUser(datapost){
-                colection.doc(datapost.itemId).set(this.datapost).then(()=>this.$mount())
-               this.datapost=""
-               alert('update successfull')
-            },
-            deleteUser(id){
-                colection.doc(id).delete().then(()=>this.$mount())
+        mounted() {
+          colection
+            .get()
+            .then((r) =>
+              r.docs.map((item) =>
+                this.user.push({ id: item.id, data: item.data() })
+              )
+            );
+          this.user = [];
+        },
+        methods: {
+          setData(item, itemId) {
+            this.userItem = item;
+
+            this.datapost = {
+              ...item,
+              itemId,
+            };
+            console.log(this.datapost);
+            // console.log( this.datapost);
+            console.log(this.datapostId);
+          },
+          updateUser(datapost) {
+            colection
+              .doc(datapost.itemId)
+              .set(this.datapost)
+              .then(() => this.$mount());
+            this.datapost = "";
+            alert("update successfull");
+          },
+          deleteUser(id) {
+            var result = confirm("Are you sure to delete?");
+            if (result) {
+              colection
+                .doc(id)
+                .delete()
+                .then(() => this.$mount());
             }
-        }
-    })
-</script>
-</body>
+          },
+        },
+      });
+    </script>
+  </body>
 </html>
